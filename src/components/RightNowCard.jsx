@@ -15,9 +15,12 @@ function StayingBackCard({ remainingMins }) {
   const display = hrs > 0 ? `${hrs}h ${mins}m` : `${mins}m`
 
   return (
-    <div className="rn-card rn-staying-back">
+    <div className="rn-card rn-staying-back" style={{
+      borderColor: 'rgba(245,158,11,0.45)',
+      boxShadow: '0 0 0 1px rgba(245,158,11,0.25), 0 6px 32px rgba(245,158,11,0.14)',
+    }}>
       <div className="rn-inner">
-        <div className="rn-accent-bar" style={{ background: '#F59E0B' }} />
+        <div className="rn-accent-bar" style={{ background: '#FFC030', boxShadow: '0 0 8px #FFC030' }} />
         <div className="rn-content">
           <div className="rn-eyebrow">Right Now</div>
           <div className="rn-label">📍 Staying Back</div>
@@ -52,9 +55,13 @@ function BetweenCard({ nextBlock }) {
     : `In ${Math.floor(minsUntil / 60)}h ${minsUntil % 60}m`
 
   return (
-    <div className="rn-card">
+    <div className="rn-card" style={{
+      borderColor: `${colour}55`,
+      boxShadow: `0 0 0 1px ${colour}30, 0 6px 32px ${colour}18, inset 0 0 60px ${colour}06`,
+      background: `linear-gradient(155deg, var(--bg-card) 0%, ${colour}10 100%)`,
+    }}>
       <div className="rn-inner">
-        <div className="rn-accent-bar" style={{ background: colour }} />
+        <div className="rn-accent-bar" style={{ background: colour, boxShadow: `0 0 8px ${colour}` }} />
         <div className="rn-content">
           <div className="rn-eyebrow">Up Next · {timeToDisplay(nextBlock.effectiveStart)}</div>
           <div className="rn-label" style={{ color: colour }}>{nextBlock.label}</div>
@@ -103,9 +110,13 @@ export default function RightNowCard({
   const currentFitness = fitness
 
   return (
-    <div className="rn-card">
+    <div className="rn-card" style={{
+      borderColor: `${colour}55`,
+      boxShadow: `0 0 0 1px ${colour}30, 0 6px 32px ${colour}18, inset 0 0 60px ${colour}06`,
+      background: `linear-gradient(155deg, var(--bg-card) 0%, ${colour}10 100%)`,
+    }}>
       <div className="rn-inner">
-        <div className="rn-accent-bar" style={{ background: colour }} />
+        <div className="rn-accent-bar" style={{ background: colour, boxShadow: `0 0 8px ${colour}` }} />
         <div className="rn-content">
           <div className="rn-eyebrow">
             Right Now · {timeToDisplay(currentBlock.effectiveStart)}–{timeToDisplay(currentBlock.effectiveEnd)}

@@ -59,7 +59,7 @@ function AddModal({ onAdd, onClose }) {
               onChange={e => setSubject(e.target.value)}
             >
               {SUBJECTS.map(s => (
-                <option key={s.code} value={s.code}>{s.code} — {s.label.split(' ').slice(0,2).join(' ')}</option>
+                <option key={s.code} value={s.code}>{s.code}</option>
               ))}
             </select>
           </div>
