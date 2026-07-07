@@ -13,6 +13,14 @@
 </head>
 <body>
   <div id="root"></div>
+  <!-- Capture install prompt BEFORE React loads — event fires very early -->
+  <script>
+    window.__pwaInstallPrompt = null;
+    window.addEventListener('beforeinstallprompt', function(e) {
+      e.preventDefault();
+      window.__pwaInstallPrompt = e;
+    });
+  </script>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>

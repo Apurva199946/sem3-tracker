@@ -79,9 +79,15 @@ export default function App() {
   useEffect(() => onAuthStateChanged(auth, u => setUser(u || null)), [])
 
   useEffect(() => {
+    // Check for prompt captured early by inline script in index.html
+    if (window.__pwaInstallPrompt) {
+      setInstall(window.__pwaInstallPrompt)
+    }
+    // Also listen for future fires (e.g. after service worker update)
     const handler = (e) => {
       e.preventDefault()
       setInstall(e)
+      window.__pwaInstallPrompt = e
     }
     window.addEventListener('beforeinstallprompt', handler)
     return () => window.removeEventListener('beforeinstallprompt', handler)
