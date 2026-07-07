@@ -8,8 +8,7 @@
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
-
+    "deploy": "npm run build && gh-pages -d dist --dotfiles"
   },
   "dependencies": {
     "firebase": "^12.15.0",
